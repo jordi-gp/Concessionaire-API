@@ -1,0 +1,114 @@
+# =========================
+
+# 🧱 Maven
+
+# =========================
+
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Wrapper (opcional: puedes versionarlo si quieres)
+
+.mvn/
+mvnw
+mvnw.cmd
+
+# =========================
+
+# ☕ Java
+
+# =========================
+
+*.class
+
+# =========================
+
+# 🌘 Eclipse
+
+# =========================
+
+.metadata/
+.project
+.classpath
+.settings/
+.loadpath
+.factorypath
+.springBeans
+.recommenders/
+
+# =========================
+
+# 🧠 Otros IDEs (por si acaso)
+
+# =========================
+
+.idea/
+*.iml
+.vscode/
+
+# =========================
+
+# 🔐 Configuración sensible
+
+# =========================
+
+# Variables de entorno
+
+.env
+.env.*
+
+# Configuración local de Spring
+
+application-local.properties
+application-local.yml
+application-dev.properties
+application-dev.yml
+
+# Archivos de secretos
+
+secrets.properties
+secrets.yml
+
+# =========================
+
+# 📦 Logs
+
+# =========================
+
+logs/
+*.log
+
+# =========================
+
+# 🖥️ Sistema operativo
+
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# =========================
+
+# 🧪 Tests / Reports
+
+# =========================
+
+/test-output/
+/surefire-reports/
+/failsafe-reports/
+
+# =========================
+
+# 🔄 Temporales
+
+# =========================
+
+*.tmp
+*.swp
+*~
