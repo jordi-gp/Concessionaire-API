@@ -31,12 +31,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                path.startsWith("/api-docs") ||
                path.startsWith("/swagger-resources") ||
                path.startsWith("/webjars") ||
-               path.startsWith("/api/auth");
-  // ||             
-//	path.equals("/api/v1/usuarios/validar/") ||
-//	path.startsWith("/api/v1/usuarios/") ||              
-//	path.equals("/login") ||
-//	path.equals("/register");
+               path.startsWith("/api/auth") ||
+             
+				path.equals("/api/v1/users/validate") ||
+				path.startsWith("/api/v1/users/") ||              
+				path.equals("/login") ||
+				path.equals("/register");
     }
  
     @Override

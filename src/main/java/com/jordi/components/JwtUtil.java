@@ -12,8 +12,8 @@ import io.jsonwebtoken.security.Keys;
 
 @Component
 public class JwtUtil {
-	@Value("${jwt.secret}")
-	private String SECRET_KEY;
+	//@Value("${jwt.secret}")
+	private String SECRET_KEY = "Un Anillo para gobernarlos a todos, Un Anillo para encontrarlos, Un Anillo para atraerlos a todos y atarlos en la oscuridad";
 
 	public String generateToken(String username, String role) {
 	return Jwts.builder()
