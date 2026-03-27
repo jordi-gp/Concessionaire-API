@@ -33,8 +33,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                path.startsWith("/webjars") ||
                path.startsWith("/api/auth") ||
              
-				path.equals("/api/v1/users/validate") ||
-				path.startsWith("/api/v1/users/") ||              
+				path.equals("/api/v1/users/user/validate") ||
+				//path.startsWith("/api/v1/users/") ||              
 				path.equals("/login") ||
 				path.equals("/register");
     }

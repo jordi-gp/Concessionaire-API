@@ -1,5 +1,7 @@
 package com.jordi.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -61,8 +63,17 @@ public class ITypeServiceImp implements ITypeService {
 		Gson gs = new Gson();
 		Type tempType = gs.fromJson(type, Type.class);
 		
-		if(tempType instanceof Type) {
-			return ResponseEntity.status(200).body(tRepository.save(tempType));
+		if(tempType instanceof Type && tempType.getId() > 0) {
+			Optional<Type> existsType = tRepository.findById(tempType.getId());
+			
+			if(existsType.isPresent()) {
+				Type updateType = existsType.get();
+				updateType.setName(tempType.getName());
+				
+				return ResponseEntity.status(200).body(tRepository.save(updateType));
+			} else {
+				return ResponseEntity.status(404).body(new MsgError(404, "Tipo no encontrado"));
+			}
 		}
 		
 		return ResponseEntity.status(500).body(new MsgError(500, "Error interno del servidor"));

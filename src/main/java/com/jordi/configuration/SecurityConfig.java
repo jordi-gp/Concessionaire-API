@@ -38,18 +38,19 @@ public class SecurityConfig {
 						.requestMatchers(HttpMethod.POST, "/api/v1/users/user/validate").permitAll()
 						.requestMatchers(HttpMethod.PUT, "/api/v1/users/user/block/").hasAnyRole("SYSTEM")
 						.requestMatchers(HttpMethod.POST, "/api/v1/users/").hasAnyRole("ADMIN")
+						//.requestMatchers(HttpMethod.GET, "/api/v1/users/").hasAnyRole("ADMIN")
 						.requestMatchers(HttpMethod.GET, "/api/v1/users/**").hasAnyRole("ADMIN")
 						.requestMatchers(HttpMethod.DELETE, "/api/v1/users/**").hasAnyRole("ADMIN")
 						.requestMatchers(HttpMethod.PUT, "/api/v1/users/**").hasAnyRole("ADMIN")
  
-						.requestMatchers(HttpMethod.GET, "/api/v1/vehicles/**").hasAnyRole("ADMIN","USUARIO")
-						.requestMatchers(HttpMethod.POST, "/api/v1/vehicles/**").hasAnyRole("ADMIN","USUARIO")
-						.requestMatchers(HttpMethod.PUT, "/api/v1/vehicles/**").hasAnyRole("ADMIN","USUARIO")
+						.requestMatchers(HttpMethod.GET, "/api/v1/vehicles/**").hasAnyRole("ADMIN","USER")
+						.requestMatchers(HttpMethod.POST, "/api/v1/vehicles/**").hasAnyRole("ADMIN","USER")
+						.requestMatchers(HttpMethod.PUT, "/api/v1/vehicles/**").hasAnyRole("ADMIN","USER")
 						.requestMatchers(HttpMethod.DELETE, "/api/v1/vehicles/**").hasAnyRole("ADMIN")
  
-						.requestMatchers(HttpMethod.GET, "/api/v1/brands/**").hasAnyRole("ADMIN","USUARIO")
-						.requestMatchers(HttpMethod.POST, "/api/v1/brands/**").hasAnyRole("ADMIN","USUARIO")
-						.requestMatchers(HttpMethod.PUT, "/api/v1/brands/**").hasAnyRole("ADMIN","USUARIO")
+						.requestMatchers(HttpMethod.GET, "/api/v1/brands/**").hasAnyRole("ADMIN","USER")
+						.requestMatchers(HttpMethod.POST, "/api/v1/brands/**").hasAnyRole("ADMIN","USER")
+						.requestMatchers(HttpMethod.PUT, "/api/v1/brands/**").hasAnyRole("ADMIN","USER")
 						.requestMatchers(HttpMethod.DELETE, "/api/v1/brands/**").hasAnyRole("ADMIN")
  
  

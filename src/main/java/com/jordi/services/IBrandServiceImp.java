@@ -1,6 +1,7 @@
 package com.jordi.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -67,8 +68,17 @@ public class IBrandServiceImp implements IBrandService {
 			Gson gs = new Gson();
 			Brand tempBrand = gs.fromJson(brand, Brand.class);
 			
-			if(tempBrand instanceof Brand) {
-				return ResponseEntity.status(200).body(bRepository.save(tempBrand));
+			if(tempBrand instanceof Brand && tempBrand.getId() > 0) {
+				Optional<Brand> existsBrand = bRepository.findById(tempBrand.getId());
+				
+				if(existsBrand.isPresent()) {
+					Brand updateBrand = existsBrand.get();
+					updateBrand.setName(tempBrand.getName());
+					
+					return ResponseEntity.status(200).body(bRepository.save(updateBrand));
+				} else {
+					return ResponseEntity.status(404).body(new MsgError(404, "Tipo no encontrado"));
+				}
 			}
 			
 			return ResponseEntity.status(500).body(new MsgError(500, "Error interno del servidor"));

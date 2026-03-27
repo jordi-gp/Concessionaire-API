@@ -103,7 +103,7 @@ public class IUserServiceImp implements IUserService {
 			ResponseEntity<?> user = getUserById(String.valueOf(tempId));
 			User tempUser = (User)user.getBody();
 			
-			if(tempUser.getId() != 0) return ResponseEntity.status(200).body(true);
+			if(tempUser.getId() == 0) return ResponseEntity.status(200).body(true);
 			return ResponseEntity.status(500).body(new MsgError(500, "Error interno del servidor al eliminar el usuario"));
 		} catch(NumberFormatException e) {
 			return ResponseEntity.status(400).body(new MsgError(400, "Error, el id no es un valor númerico"));
@@ -133,7 +133,6 @@ public class IUserServiceImp implements IUserService {
 				String tempHashedPassword = Auxiliar.hash(tempPass);
 				Integer tempUserRoleId = tempUser.getRole().getId();
 				
-				
 				if(tempHashedPassword.equalsIgnoreCase(tempUser.getPassword())
 						&& Auxiliar.isAdmin(tempUserRoleId) || Auxiliar.isUser(tempUserRoleId)) {	
 					String token = jwtUtil.generateToken(tempUser.getUsername(),  tempUser.getRole().getName());
@@ -141,8 +140,6 @@ public class IUserServiceImp implements IUserService {
 				} else {
 					return ResponseEntity.status(500).body(new MsgError(500,"Contraseña incorrecta"));
 				}
-					
-				
 			} else {
 				return ResponseEntity.status(500).body(new MsgError(500,"Usuario no encontrado"));
 			}

@@ -44,8 +44,6 @@ public class IVehicleServiceImp implements IVehicleService {
 			Gson gs = new Gson();
 			Vehicle tempVehicle = gs.fromJson(vehicle, Vehicle.class);
 			
-			
-			
 			if(tempVehicle instanceof Vehicle) {
 				return ResponseEntity.status(201).body(vRepository.save(tempVehicle));
 			}
