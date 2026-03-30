@@ -44,7 +44,7 @@ public class IUserServiceImp implements IUserService {
 		} catch(NumberFormatException e) {
 			return ResponseEntity.status(400).body(new MsgError(400, "Error, el id no es un valor númerico"));
 		} catch(Exception e) {
-			return ResponseEntity.status(500).body(new MsgError(500, "Error al obtener la marca"));
+			return ResponseEntity.status(500).body(new MsgError(500, "Error al obtener el usuario seleccionado"));
 		}
 	}
 
@@ -54,7 +54,7 @@ public class IUserServiceImp implements IUserService {
 			User tempUser = uRepository.findByUsername(username);
 			return ResponseEntity.status(200).body(tempUser);
 		} catch(Exception e) {
-			return ResponseEntity.status(500).body(new MsgError(500, "Error al obtener la marca"));
+			return ResponseEntity.status(500).body(new MsgError(500, "Error al obtener el usuario"));
 		}
 	}
 
